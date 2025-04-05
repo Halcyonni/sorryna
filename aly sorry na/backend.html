@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <title>Moving Button</title>
+
+    <style>
+        p {
+            font-family: "Reenie Beanie", cursive;
+            font-weight: 400;
+            font-size: 150%;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #f0f8ff; /* Light blue background */
+            background-image: url('note.png'); /* Optional: Replace with your image URL */
+            background-size: cover; /* Ensures the image covers the entire page */
+            background-position: center; /* Centers the background image */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: "Shadows Into Light", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        button {
+            transform: translatex(360px);
+            outline: none;
+            margin: 10px;
+            color: #8d5321;
+            padding: 10px 20px;
+            padding-left: 3em;
+            padding-right: 3em;
+            border: 2px dashed #8d5321;
+            border-radius: 15px;
+            background-color: #eec485;
+            box-shadow: 0 0 0 4px #eec485, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+            transition: .1s ease-in-out, .4s color;
+            text-align: center;
+            font-family: "Shadows Into Light", cursive;
+            font-weight: 400;
+            font-size: 100%;
+            font-style: normal;
+        }
+
+        button:active {
+            transform: translateX(0.1em) translateY(0.1em);
+            box-shadow: 0 0 0 4px #EADDCA, 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Style for the container */
+        #container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 40px;
+            width: 150%; /* Adjust width as needed */
+            max-width: 1000px; /* Limit max width */
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+            position: relative; /* To position the image inside the container */
+        }
+
+        /* Style for the image in the top-right corner */
+        #topImage {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px; /* Adjust size as needed */
+            height: 50px; /* Adjust size as needed */
+        }
+
+        #bottomImage {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 50px; /* Adjust size as needed */
+            height: 50px; /* Adjust size as needed */
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h1>DEAR ALY KO</h1>
+        <div class="w3-container" id="container">
+            <img id="topImage" src="please.png" alt="top Image"> 
+            <img id="bottomImage" src="heart.png" alt="bottom Image"> <!-- Image in the corner -->
+            <p>ALY ALY ALY ALY ALYYYY super sorry i forgetti ang b-day mo sorry talaga alam ko pang-ilang beses na 'to pero promise hindiko sinasadyang kalimutan b-day mo waaah unblock mo na ko promise di ko na kakalimutan birthday ng isa sa pinaka favorite person ko dito sa universeee huhu.. I know this is too much late pero HAPPY BIRTHDAY Aly kooo, kahit minsan nalang tayo magkasama love pa rin kita you know andito lang me palagi pag need mo koo (shempre sasabihin mo need mo ko sa b-day mo pero wala aq) huhu sorry na kasi basta sorry kasi super busy ako now,, babawi talaga me atsaka shempre ALWAYYS THANK YOU kasi ikaw palagi kang andyan kapag kailangan kita and im souper grateful na naging bestfriend kita,, di mo to alam pero mula nung naging bff kita, u set the standard sa lahat ng taong deserve maging bff ko ems HAGJGAJGA I LOVE YOU ALWAYS sana always healthy ka and matupad mo pangarap mo im so happy for youuu kahit sa lahat ng katangahan mo sa buhay yun lang LOVE LOTS SORRY NA UNBLOCK ME PLESAE</p>
+        </div>
+        <h1>Sorry na pleaseeee?</h1>
+        <button id="yesButton">Okay, love you</button>
+        <button id="no" onclick="no()">nauuur</button>
+    </div>
+
+    <script>
+        // Function to show an alert when the "Okay, love you" button is clicked
+        document.getElementById("yesButton").addEventListener("click", function() {
+            alert("I love you! hehehehhehe <3");
+        });
+
+        // Get the "No" button element
+        const noButton = document.getElementById('no');
+
+        // Function to move the "No" button to a random position
+        function moveButton() {
+            const maxX = window.innerWidth - noButton.offsetWidth; // Maximum X (width) position
+            const maxY = window.innerHeight - noButton.offsetHeight; // Maximum Y (height) position
+
+            // Random X and Y positions within the bounds of the viewport
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            // Apply the new position to the button
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+
+        // Add a mouseover event listener to move the "No" button when hovered
+        noButton.addEventListener('mouseover', moveButton);
+
+        // Function to show an alert when the "No" button is clicked
+        function no() {
+            alert("Nauuur! ayawww!");
+        }
+    </script>
+</body>
+</html>
